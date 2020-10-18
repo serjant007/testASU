@@ -1,38 +1,245 @@
-.App {
-  text-align: center;
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    outline: none;
+    font-family: 'Proxima Nova', Roboto, system-ui, Tahoma, sans-serif;
+    box-sizing: border-box;
 }
 
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: black;
+}
+
+a,
+span,
+p,
+b,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: black;
+}
+
+button {
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+    position: relative;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 26px;
+}
+
+.container {
+    max-width: 1720px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    margin-top: 10px;
+}
+.header__inner {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    border-top: 2px solid rgb(161, 159, 159);
+    border-bottom: 2px solid rgb(161, 159, 159);
+    background-color: rgb(236, 228, 228);
+    font-weight: 500;
+}
+
+.header__name {
+    margin-left: 150px;
+}
+
+.header__surname {
+    margin-left: 35%;
+}
+
+/* Persone */
+
+.person__inner {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    border-bottom: 1px solid rgb(161, 159, 159);
+    background-color: rgb(253, 247, 247);
+    font-weight: 400;
+}
+.person__inner:hover {
+    background-color: rgb(238, 247, 236);
+}
+
+.fa-user-circle {
+    color: rgb(131, 131, 131);
+    font-size: 1.3em;
+    margin-left: 30px;
+}
+.person__name {
+    margin-left: 50px;
+}
+
+.person__surname {
+    margin-left: 34%;
+    margin-right: auto;
+}
+.person__rename {
+    color: rgb(233, 155, 67);
+    font-size: 2.2em;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.person__rename:hover {
+    opacity: 0.8;
+}
+.person__delete {
+    color: rgb(194, 32, 32);
+    font-size: 2.2em;
+    margin-right: 20px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.person__delete:hover {
+    opacity: 0.7;
+}
+
+/* Button add */
+
+.button-add {
+    margin-top: 12px;
+    padding: 8px;
+    background-color: #3d8bcd;
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.button-add:hover {
+    opacity: 0.8;
+}
+
+/* Create-form */
+
+.create,
+.edit {
+    position: fixed;
+    background-color: #fff;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 33%;
+    min-width: 320px;
+    margin: auto auto;
+    border: 1px solid rgb(182, 173, 173);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 5;
+}
+.create {
+    display: block;
+}
+.edit {
+    display: block;
+}
+.overlay {
+    position: fixed;
+    display: block;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+.create__header {
+    text-align: left;
+    height: 34px;
+    background-color: rgb(182, 173, 173);
+}
+
+.create__back {
+    max-width: 124px;
+}
+.create__back > button {
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: underline;
+}
+.create__back > button:hover {
+    text-decoration: none;
+}
+
+.create__form-title {
+    color: #fff;
+    padding-left: 3%;
+    line-height: 34px;
+}
+
+.wrapper {
+    padding: 2% 5%;
+    display: flex;
+    flex-direction: column;
+}
+.create__form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts__form-input {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 6px;
+    font-size: 13px;
+    line-height: 17px;
+    color: #000;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.wrapper > button {
+    margin-top: 0;
+    align-self: flex-end;
+}
+
+/*  */
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
