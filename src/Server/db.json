@@ -24,6 +24,11 @@
             "id": 5,
             "firstName": "Benjamin",
             "lastName": "Harrison"
+        },
+        {
+            "id": 6,
+            "firstName": "Vladimir",
+            "lastName": "Putin"
         }
     ]
 }

@@ -1,8 +1,7 @@
-import axios from 'axios';
 import React from 'react';
 import ButtonSave from './ButtonSave';
 
-function Create({ closeCreatePop, onAdd, list }) {
+function Edit({ closeEditPop, onAdd, list }) {
     const [inputName, setInputName] = React.useState('');
     const [inputSurname, setInputSurname] = React.useState('');
 
@@ -14,23 +13,19 @@ function Create({ closeCreatePop, onAdd, list }) {
             alert('Введите фамилию сотрудника');
             return;
         }
-        axios
-            .post('http://localhost:3001/persons', { firstName: inputName, lastName: inputSurname })
-            .then(({ data }) => {
-                onAdd(data);
-            });
-        closeCreatePop();
+        onAdd({ id: list.length + 1, firstName: inputName, lastName: inputSurname });
+        closeEditPop();
     };
     return (
         <div className="overlay">
-            <div className="create">
+            <div className="edit">
                 <div className="create__form-block">
                     <div className="create__header">
-                        <h3 className="create__form-title">Создание сотрудника</h3>
+                        <h3 className="create__form-title">Редактирование сотрудника</h3>
                     </div>
                     <div className="wrapper">
                         <div className="create__back">
-                            <button onClick={closeCreatePop}>Назад к списку</button>
+                            <button onClick={closeEditPop}>Назад к списку</button>
                         </div>
                         <div className="create__form">
                             <input
@@ -51,7 +46,7 @@ function Create({ closeCreatePop, onAdd, list }) {
                             />
                         </div>
                         <ButtonSave
-                            onCloseCreate={closeCreatePop}
+                            onCloseCreate={closeEditPop}
                             onClick={addPerson}
                             text="Сохранить"
                             pos="create__btn-save"
@@ -63,4 +58,4 @@ function Create({ closeCreatePop, onAdd, list }) {
     );
 }
 
-export default Create;
+export default Edit;
