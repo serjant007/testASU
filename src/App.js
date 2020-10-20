@@ -5,10 +5,30 @@ import { Button, Create, Edit, Header, Person } from './Components';
 
 function App() {
     const [list, setList] = React.useState(null);
+    const [editUser, setEditUser] = React.useState({});
 
     const onAddPerson = (obj) => {
         const newPerson = [...list, obj];
         setList(newPerson);
+    };
+
+    const onEditPerson = (obj) => {
+        const newList = list.map((el) => {
+            if (el.id === obj.id) {
+                return obj;
+            }
+            return el;
+        });
+        setList(newList);
+        axios.patch('http://localhost:3001/persons/' + obj.id, {
+            id: obj.id,
+            firstName: obj.firstName,
+            lastName: obj.lastName,
+        });
+    };
+
+    const editPersone = (item) => {
+        setEditUser(item);
     };
 
     React.useEffect(() => {
@@ -17,9 +37,15 @@ function App() {
         });
     }, []);
 
-    const onRemove = (item) => {
-        if (window.confirm(` Вы действительно хотите удалить ${item.lastName}?`)) {
-            console.log(item);
+    const onRemove = (item, id) => {
+        if (
+            window.confirm(` Вы действительно хотите удалить ${item.firstName} ${item.lastName}?`)
+        ) {
+            axios.delete('http://localhost:3001/persons/' + item.id).then(() => {
+                const listUpd = [...list];
+                listUpd.splice(id, 1);
+                setList(listUpd);
+            });
         }
     };
 
@@ -45,7 +71,12 @@ function App() {
             <div className="container">
                 <Header />
                 {list ? (
-                    <Person onEdit={showEdit} items={list} onRemove={onRemove} />
+                    <Person
+                        showEdit={showEdit}
+                        items={list}
+                        onRemove={onRemove}
+                        editItem={editPersone}
+                    />
                 ) : (
                     <h4>Загрузка данных...</h4>
                 )}
@@ -54,7 +85,16 @@ function App() {
             {showCreatePop && (
                 <Create list={list} onAdd={onAddPerson} closeCreatePop={closeCreate} />
             )}
-            {showEditPop && <Edit list={list} onAdd={onAddPerson} closeEditPop={closeEdit} />}
+            {showEditPop && (
+                <Edit
+                    list={list}
+                    onAdd={onEditPerson}
+                    closeEditPop={closeEdit}
+                    editItem={showEdit}
+                    editPersonItem={editPersone}
+                    editData={editUser}
+                />
+            )}
         </div>
     );
 }

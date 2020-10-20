@@ -1,11 +1,12 @@
 import React from 'react';
 import ButtonSave from './ButtonSave';
 
-function Edit({ closeEditPop, onAdd, list }) {
+function Edit({ closeEditPop, onAdd, editData }) {
     const [inputName, setInputName] = React.useState('');
     const [inputSurname, setInputSurname] = React.useState('');
+    const { firstName, lastName, id } = editData;
 
-    const addPerson = () => {
+    const editPerson = () => {
         if (!inputName) {
             alert('Введите имя сотрудника');
             return;
@@ -13,7 +14,7 @@ function Edit({ closeEditPop, onAdd, list }) {
             alert('Введите фамилию сотрудника');
             return;
         }
-        onAdd({ id: list.length + 1, firstName: inputName, lastName: inputSurname });
+        onAdd({ id: id, firstName: inputName, lastName: inputSurname });
         closeEditPop();
     };
     return (
@@ -34,7 +35,7 @@ function Edit({ closeEditPop, onAdd, list }) {
                                 className="contacts__form-input"
                                 type="text"
                                 name="name"
-                                placeholder="Введите имя сотрудника"
+                                placeholder={firstName}
                             />
                             <input
                                 value={inputSurname}
@@ -42,12 +43,12 @@ function Edit({ closeEditPop, onAdd, list }) {
                                 className="contacts__form-input"
                                 type="text"
                                 name="surname"
-                                placeholder="Введите фамилию сотрудника"
+                                placeholder={lastName}
                             />
                         </div>
                         <ButtonSave
                             onCloseCreate={closeEditPop}
-                            onClick={addPerson}
+                            onClick={editPerson}
                             text="Сохранить"
                             pos="create__btn-save"
                         />

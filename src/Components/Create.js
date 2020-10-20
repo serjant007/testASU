@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import ButtonSave from './ButtonSave';
 
-function Create({ closeCreatePop, onAdd, list }) {
+function Create({ closeCreatePop, onAdd }) {
     const [inputName, setInputName] = React.useState('');
     const [inputSurname, setInputSurname] = React.useState('');
 
