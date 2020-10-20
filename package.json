@@ -32,5 +32,11 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "stylelint": "^13.7.2",
+        "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+        "stylelint-order": "^4.1.0",
+        "stylelint-scss": "^3.18.0"
     }
 }
