@@ -33,7 +33,7 @@
 .person__surname {
   margin-right: auto;
   padding-right: 10px;
-  max-width: 51%;
+  width: 35%;
 }
 
 .person__rename {
