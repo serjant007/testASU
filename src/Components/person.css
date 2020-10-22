@@ -1,0 +1,63 @@
+.person__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(161, 159, 159);
+  min-height: 40px;
+  font-weight: 400;
+  background-color: rgb(253, 247, 247);
+}
+
+.person__inner:hover {
+  background-color: rgb(238, 247, 236);
+}
+
+.fa-user-circle {
+  margin-left: 1.5%;
+  margin-right: 6%;
+  font-size: 1.3em;
+  color: rgb(131, 131, 131);
+}
+
+.person__name,
+.person__surname {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.person__name {
+  width: 34%;
+}
+
+.person__surname {
+  margin-right: auto;
+  padding-right: 10px;
+  max-width: 51%;
+}
+
+.person__rename {
+  margin: 2px 5px 0 2px;
+  font-size: 2.2em;
+  line-height: 1.1em;
+  color: rgb(233, 155, 67);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.person__rename:hover {
+  opacity: 0.8;
+}
+
+.person__delete {
+  margin: 2px 20px 0 0;
+  font-size: 2.2em;
+  line-height: 1.1em;
+  color: rgb(194, 32, 32);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.person__delete:hover {
+  opacity: 0.7;
+}

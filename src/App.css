@@ -1,308 +1,129 @@
-* {
-  list-style: none;
-  margin: 0;
-  outline: none;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Proxima Nova', 'Roboto', system-ui, 'Tahoma', sans-serif;
-}
-
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-a,
-span,
-p,
-b,
-h1,
-h2,
-h3,
-h4,
-h5 {
-  color: #000;
-}
-
-button {
-  border: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-body {
-  position: relative;
-  overflow-x: hidden;
-  min-width: 320px;
-  font-family: Arial, Helvetica, sans-serif;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-size: 17px;
-  line-height: 26px;
-  color: #000;
-}
-
-.container {
-  margin: 0 auto;
-  padding: 0 15px 15px;
-  max-width: 1720px;
-}
-
 /* Header */
-.header {
-  margin-top: 10px;
-}
 
-.header__inner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  border-top: 2px solid rgb(161, 159, 159);
-  border-bottom: 2px solid rgb(161, 159, 159);
-  min-height: 50px;
-  font-weight: 500;
-  background-color: rgb(236, 228, 228);
-}
-
-.header__name {
-  margin-left: 150px;
-}
-
-.header__surname {
-  position: absolute;
-  margin-left: 43%;
-}
+@import url('./Components/header.css');
 
 /* Persone */
 
-.person__inner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid rgb(161, 159, 159);
-  min-height: 40px;
-  font-weight: 400;
-  background-color: rgb(253, 247, 247);
-}
+@import url('./Components/person.css');
 
-.person__inner:hover {
-  background-color: rgb(238, 247, 236);
-}
+/* Button add / save */
 
-.fa-user-circle {
-  margin-left: 30px;
-  font-size: 1.3em;
-  color: rgb(131, 131, 131);
-}
+@import url('./Components/button.css');
 
-.person__name {
-  margin-right: auto;
-  margin-left: 98px;
-}
+/* Create-form / edit-form */
 
-.person__surname {
-  position: absolute;
-  margin-right: auto;
-  margin-left: 43%;
-}
-
-.person__rename {
-  margin: 0 5px;
-  font-size: 2.2em;
-  color: rgb(233, 155, 67);
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.person__rename:hover {
-  opacity: 0.8;
-}
-
-.person__delete {
-  margin-right: 20px;
-  font-size: 2.2em;
-  color: rgb(194, 32, 32);
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.person__delete:hover {
-  opacity: 0.7;
-}
-
-/* Button add */
-
-.button-add {
-  margin-top: 12px;
-  border-radius: 12px;
-  padding: 8px;
-  font-weight: 400;
-  color: #fff;
-  background-color: #3d8bcd;
-  cursor: pointer;
-}
-
-.button-add:hover {
-  opacity: 0.8;
-}
-
-/* Create-form */
-
-.create,
-.edit {
-  position: fixed;
-  left: 50%;
-  top: 40%;
-  z-index: 5;
-  overflow: hidden;
-  margin: auto;
-  border: 1px solid rgb(182, 173, 173);
-  border-radius: 10px;
-  width: 33%;
-  min-width: 300px;
-  background-color: #fff;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-.create {
-  display: block;
-}
-
-.edit {
-  display: block;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  z-index: 3;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.create__header {
-  height: 34px;
-  text-align: left;
-  background-color: rgb(182, 173, 173);
-}
-
-.create__back {
-  max-width: 124px;
-}
-
-.create__back > button {
-  text-decoration: underline;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.create__back > button:hover {
-  text-decoration: none;
-}
-
-.create__form-title {
-  padding-left: 3%;
-  line-height: 34px;
-  color: #fff;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 2% 5%;
-}
-
-.create__form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
-.contacts__form-input {
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 6px;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000;
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.wrapper > button {
-  align-self: flex-end;
-  margin-top: 0;
-}
+@import url('./Components/create.css');
 
 /* Media */
 
-@media (max-width: 1000px) {
-  .header__surname,
-  .person__surname {
-    margin-left: 53%;
+@media (max-width: 1100px) {
+  .header__name {
+    margin-left: 10%;
+  }
+
+  .header__surname {
+    margin-left: 30%;
   }
 }
 
-@media (max-width: 700px) {
-  .header__surname,
-  .person__surname {
-    margin-left: 50%;
-  }
-
+@media (max-width: 780px) {
   .header__name {
-    margin-left: 105px;
+    margin-left: 10.5%;
   }
 
-  .person__name {
-    margin-left: 50px;
+  .header__surname {
+    margin-left: 29%;
   }
 }
 
-@media (max-width: 500px) {
-  .fa-user-circle {
-    margin-left: 15px;
-  }
-
-  .person__name {
-    margin-left: 20px;
-  }
-
+@media (max-width: 600px) {
   .header__name {
-    margin-left: 60px;
+    margin-left: 11.5%;
+  }
+
+  .header__surname {
+    margin-left: 28%;
+  }
+}
+
+@media (max-width: 540px) {
+  .person__name,
+  .person__surname {
+    font-size: 0.9em;
   }
 
   .person__rename {
-    margin: 0 10px;
+    margin: 2px 10px 0 10px;
     font-size: 1.8em;
   }
 
   .person__delete {
+    margin-right: 15px;
     font-size: 1.8em;
   }
+}
 
-  @media (max-width: 376px) {
-    .header__surname,
-    .person__surname {
-      margin-left: 44%;
-    }
+@media (max-width: 480px) {
+  .header__name {
+    margin-left: 12.5%;
   }
 
-  @media (max-width: 351px) {
-    body {
-      font-size: 15px;
-      line-height: 18px;
-    }
+  .header__surname {
+    margin-left: 26%;
+  }
+}
 
-    .button-add {
-      padding: 6px;
-      font-size: 15px;
-    }
+@media (max-width: 420px) {
+  .header__name {
+    margin-left: 13%;
+  }
 
-    .create__back > button {
-      font-size: 15px;
-    }
+  .header__surname {
+    margin-left: 25.5%;
+  }
+  .fa-user-circle {
+    margin-left: 8px;
+  }
+
+  .person__name,
+  .person__surname {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 376px) {
+  .header__name {
+    margin-left: 14%;
+  }
+
+  .header__surname {
+    margin-left: 21%;
+  }
+  .fa-user-circle {
+    margin-left: 8px;
+  }
+
+  .person__name,
+  .person__surname {
+    font-size: 0.8em;
+  }
+  .person__name {
+    width: 31%;
+  }
+}
+
+@media (max-width: 351px) {
+  body {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .button-add {
+    padding: 6px;
+    font-size: 15px;
+  }
+
+  .create__back > button {
+    font-size: 15px;
   }
 }

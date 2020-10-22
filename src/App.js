@@ -3,6 +3,10 @@ import './App.css';
 import axios from 'axios';
 import { Button, Create, Edit, Header, Person } from './Components';
 
+import 'react-app-polyfill/ie9';
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+
 function App() {
   const [list, setList] = React.useState(null);
   const [editUser, setEditUser] = React.useState({});
